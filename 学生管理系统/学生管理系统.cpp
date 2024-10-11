@@ -8,19 +8,20 @@ struct stu
  };
  struct game
 {
+	int sgd=100;
 	 num();
 	struct game *next;
 };
- struct stu *creat();//½¨Á¢Á´±í 
- struct stu* print(struct stu*p);//´òÓ¡Á´±í 
- struct stu*find(struct stu*p);//²éÑ¯Á´±í
- struct stu*sort(struct stu*p);//³É¼¨ÅÅĞò
- struct stu*cut(struct stu*p);//É¾³ıÁ´±í 
- struct stu *add(struct stu*p);//Ôö¼ÓÁ´±í
- void menu();//²Ëµ¥ ¼°ÓÃ»§²Ù×÷ 
- void files(struct stu *p);//ÎÄ¼ş±£´æ
- void file_p(struct stu*p);//ÎÄ¼ş´ò¿ª 
- //void game1(); //ËÀÍöÓÎÏ· 
+ struct stu *creat();//å»ºç«‹é“¾è¡¨ 
+ struct stu* print(struct stu*p);//æ‰“å°é“¾è¡¨ 
+ struct stu*find(struct stu*p);//æŸ¥è¯¢é“¾è¡¨
+ struct stu*sort(struct stu*p);//æˆç»©æ’åº
+ struct stu*cut(struct stu*p);//åˆ é™¤é“¾è¡¨ 
+ struct stu *add(struct stu*p);//å¢åŠ é“¾è¡¨
+ void menu();//èœå• åŠç”¨æˆ·æ“ä½œ 
+ void files(struct stu *p);//æ–‡ä»¶ä¿å­˜
+ void file_p(struct stu*p);//æ–‡ä»¶æ‰“å¼€ 
+ //void game1(); //æ­»äº¡æ¸¸æˆ 
  int n;
  int main()
  {	
@@ -29,7 +30,7 @@ struct stu
  }
  struct stu *creat()
  {
- 	printf("Èç¹ûÄúÑ§ºÅÊäÈë0,ÔòÂ¼Èë½áÊø\n");
+ 	printf("å¦‚æœæ‚¨å­¦å·è¾“å…¥0,åˆ™å½•å…¥ç»“æŸ\n");
  	struct stu *n1,*n2,*head;
  	n=0; head=NULL;
  	n1=n2=(struct stu*)malloc(sizeof(struct stu));
@@ -64,10 +65,10 @@ struct stu
  	struct stu*head;
  	head=p;
  	n=0;
- 	printf("½á¹ûÈçÏÂ\n\n");
+ 	printf("ç»“æœå¦‚ä¸‹\n\n");
  	while(p)
  	{
-         printf("Ñ§ºÅÎª%dµÄÑ§Éú³É¼¨ÊÇ%f\n",p->num,p->score);
+         printf("å­¦å·ä¸º%dçš„å­¦ç”Ÿæˆç»©æ˜¯%f\n",p->num,p->score);
 		 p=p->next;
 		 n++;		
     }
@@ -79,13 +80,13 @@ struct stu* find(struct stu*p)
 	int a,k=0;
 	struct stu*head,*i;
 	i=head=p;
-	printf("·ÅÆú²éÑ¯ÇëÊäÈë0£¬²éÑ¯ÔòÊäÈëËûµÄÑ§ºÅ£º");
+	printf("æ”¾å¼ƒæŸ¥è¯¢è¯·è¾“å…¥0ï¼ŒæŸ¥è¯¢åˆ™è¾“å…¥ä»–çš„å­¦å·ï¼š");
 	scanf("%d",&a);
 	while(a!=0)
 	{
 		if(k!=0)
         {
-		    printf("½áÊø²éÑ¯ÇëÊäÈë0£¬¼ÌĞø²éÑ¯ÔòÊäÈëËûµÄÑ§ºÅ£º");
+		    printf("ç»“æŸæŸ¥è¯¢è¯·è¾“å…¥0ï¼Œç»§ç»­æŸ¥è¯¢åˆ™è¾“å…¥ä»–çš„å­¦å·ï¼š");
 	        scanf("%d",&a);
      	}
 	        if(a==0)
@@ -98,14 +99,14 @@ struct stu* find(struct stu*p)
         	       goto print;
 		        }else
 		        {
-			        while(a!=p->num)//ÕÒ³ö²éÕÒĞòºÅ 
+			        while(a!=p->num)//æ‰¾å‡ºæŸ¥æ‰¾åºå· 
 	                {
 	        	        if(p->next)
 	        	        {
 			               p=p->next;
 		                }else
 		                {
-			               printf("Ã»ÓĞÕâ¸öÑ§Éú\nÍË³öÔòÊäÈë0£¬·ñÔòÇëÖØĞÂÊäÈë:");//·ÀÖ¹´íÎó 
+			               printf("æ²¡æœ‰è¿™ä¸ªå­¦ç”Ÿ\né€€å‡ºåˆ™è¾“å…¥0ï¼Œå¦åˆ™è¯·é‡æ–°è¾“å…¥:");//é˜²æ­¢é”™è¯¯ 
 			               scanf("%d",&a);
 			               if(a==0)
 					       {
@@ -117,7 +118,7 @@ struct stu* find(struct stu*p)
 	    	    }
 		    }
         
-            print: printf("Ñ§ºÅÎª%dµÄÑ§Éú³É¼¨ÊÇ%f!\n",p->num,p->score);
+            print: printf("å­¦å·ä¸º%dçš„å­¦ç”Ÿæˆç»©æ˜¯%f!\n",p->num,p->score);
             k++;
             p=head;
         }
@@ -126,7 +127,7 @@ struct stu* find(struct stu*p)
     }
 struct stu*sort(struct stu*p)
 {
-	printf("³É¼¨ÓÉ¸ßµ½µÍÈçÏÂ:\n");
+	printf("æˆç»©ç”±é«˜åˆ°ä½å¦‚ä¸‹:\n");
 	struct stu *i,*q;
 	int a;
 	float b;
@@ -136,7 +137,7 @@ struct stu*sort(struct stu*p)
 	    i=p->next; 
 	    while(i)
 	    {    
-		    if(i->score>p->score)//½»»»Öµ 
+		    if(i->score>p->score)//äº¤æ¢å€¼ 
 	  	    {
 			    b=i->score;
 			    i->score=p->score;
@@ -157,7 +158,7 @@ struct stu*cut(struct stu*p)
 	int a,m=0,k;
 	struct stu *i,*j,*head;
 	head=i=j=p;
-	printf("·ÅÆú²Ù×÷ÇëÊäÈë0£¬¼ÌĞøÔòÊäÈëÄúÏëÉ¾³ıµÄÑ§ºÅ£º");
+	printf("æ”¾å¼ƒæ“ä½œè¯·è¾“å…¥0ï¼Œç»§ç»­åˆ™è¾“å…¥æ‚¨æƒ³åˆ é™¤çš„å­¦å·ï¼š");
 	scanf("%d",&a);
 	printf("\n");
 	if(a==0)
@@ -165,7 +166,7 @@ struct stu*cut(struct stu*p)
 		goto end4;
 	}else
 	 {
-	cut:while(a!=0)//Ñ­»·ÎªÁË¶à´ÎÉ¾³ı 
+	cut:while(a!=0)//å¾ªç¯ä¸ºäº†å¤šæ¬¡åˆ é™¤ 
 	 	{
 	 	if(a==p->num)
 	       {
@@ -173,7 +174,7 @@ struct stu*cut(struct stu*p)
 		    head=p;
 	       }else
 	       {  
-	 	        while(p->num!=a)//²éÕÒÁ´±íĞòºÅ 
+	 	        while(p->num!=a)//æŸ¥æ‰¾é“¾è¡¨åºå· 
                	{
 		            if(p->next)
 		            {
@@ -184,7 +185,7 @@ struct stu*cut(struct stu*p)
 		            	if(a!=p->num)
 		            	{
 		                 	m=-1;
-			                printf("¶Ô²»ÆğÃ»ÓĞÕâ¸öÑ§Éú£¬Èô·ÅÆúÇëÊäÈë0£¬¼ÌĞøÔòÇëÖØĞÂÊäÈë: ");//·À´í 
+			                printf("å¯¹ä¸èµ·æ²¡æœ‰è¿™ä¸ªå­¦ç”Ÿï¼Œè‹¥æ”¾å¼ƒè¯·è¾“å…¥0ï¼Œç»§ç»­åˆ™è¯·é‡æ–°è¾“å…¥: ");//é˜²é”™ 
 			                scanf("%d",&a);
 			            }
 			            if(a==p->num)
@@ -198,7 +199,7 @@ struct stu*cut(struct stu*p)
 		            }
 		            m++;
                 }
-                i=j=p=head;//ÊÇpÖØĞÂÖ¸Ïò±íÍ· 
+                i=j=p=head;//æ˜¯pé‡æ–°æŒ‡å‘è¡¨å¤´ 
                 for(k=0;k<m-1;k++)
                 {
                 	j=j->next;
@@ -211,7 +212,7 @@ struct stu*cut(struct stu*p)
 				j->next=i;
 				i=j=head;    
 	        } 
-	 	    printf("·ÅÆú²Ù×÷ÇëÊäÈë0£¬¼ÌĞøÔòÊäÈëÄúÏëÉ¾³ıµÄÑ§ºÅ£º");
+	 	    printf("æ”¾å¼ƒæ“ä½œè¯·è¾“å…¥0ï¼Œç»§ç»­åˆ™è¾“å…¥æ‚¨æƒ³åˆ é™¤çš„å­¦å·ï¼š");
 	        scanf("%d",&a);
 	         printf("\n");	
 		}
@@ -221,7 +222,7 @@ struct stu*cut(struct stu*p)
 	
 	while(a<=0)
 	{
-		printf("Ã»ÓĞÕâ¸öÑ§Éú£¬ÇëÖØĞÂÊäÈë£º");
+		printf("æ²¡æœ‰è¿™ä¸ªå­¦ç”Ÿï¼Œè¯·é‡æ–°è¾“å…¥ï¼š");
 		scanf("%d",&a);
 		printf("\n"); 
 	}
@@ -232,7 +233,7 @@ struct stu*cut(struct stu*p)
  	int a,c;
  	struct stu *i,*j,*head;
  	head=p;
- 	printf("·ÅÆúÔö¼ÓĞÅÏ¢ÔòÑ§ºÅÊäÈë0£¬¼ÌĞøÔòÊäÈë²»Îª0µÄÑ§ºÅ£º\n"); 
+ 	printf("æ”¾å¼ƒå¢åŠ ä¿¡æ¯åˆ™å­¦å·è¾“å…¥0ï¼Œç»§ç»­åˆ™è¾“å…¥ä¸ä¸º0çš„å­¦å·ï¼š\n"); 
  	i=(struct stu*)malloc(sizeof(struct stu));
 	scanf("%d",&i->num);
 	if(i->num==0)
@@ -240,11 +241,11 @@ struct stu*cut(struct stu*p)
 		goto end3;
 	 } else
 	  {
-	      while(i->num!=0)//Ñ­»·ÎªÁË¶à´ÎÌí¼ÓÁ´±í 
+	      while(i->num!=0)//å¾ªç¯ä¸ºäº†å¤šæ¬¡æ·»åŠ é“¾è¡¨ 
           {  
-	            printf("ÇëÊäÈë³É¼¨:");
+	            printf("è¯·è¾“å…¥æˆç»©:");
 	            scanf("%f",&i->score);
-	            printf("Èç¹ûÄúÏë°Ñ¸ÃÑ§Éú¼ÓÔÚ¿ªÍ·ÔòÊäÈëc=0,Èç¹û²»ÊÇÇëÊäÈëc=1\nc=");//ÊÇ·ñ¼ÓÔÚÁ´±íÍ· 
+	            printf("å¦‚æœæ‚¨æƒ³æŠŠè¯¥å­¦ç”ŸåŠ åœ¨å¼€å¤´åˆ™è¾“å…¥c=0,å¦‚æœä¸æ˜¯è¯·è¾“å…¥c=1\nc=");//æ˜¯å¦åŠ åœ¨é“¾è¡¨å¤´ 
 	            scanf("%d",&c);
 	            if(c==0)
 	            {
@@ -253,16 +254,16 @@ struct stu*cut(struct stu*p)
 		             p=i;
 	            }else
 	            {
-	                 printf("ÇëÄúÑ¡Ôñ¼ÓÔÚÄÄ¸öÑ§ÉúµÄºóÃæ£¬ÇëÊäÈëËûµÄÑ§ºÅ£º");
+	                 printf("è¯·æ‚¨é€‰æ‹©åŠ åœ¨å“ªä¸ªå­¦ç”Ÿçš„åé¢ï¼Œè¯·è¾“å…¥ä»–çš„å­¦å·ï¼š");
                      scanf("%d",&a);
-                     while(p->num!=a)//Ñ°ÕÒÁ´±íĞòºÅ 
+                     while(p->num!=a)//å¯»æ‰¾é“¾è¡¨åºå· 
 	                 {
 		                  if(p->next)
 		                  {
 			                  p=p->next;
 		                  }else
 		                  {
-			                    printf("¶Ô²»ÆğÃ»ÓĞÕâ¸öÑ§Éú£¬·ÅÆúÊäÈë0£¬¼ÌĞøÔòÖØĞÂÊäÈë: ");//·À´í 
+			                    printf("å¯¹ä¸èµ·æ²¡æœ‰è¿™ä¸ªå­¦ç”Ÿï¼Œæ”¾å¼ƒè¾“å…¥0ï¼Œç»§ç»­åˆ™é‡æ–°è¾“å…¥: ");//é˜²é”™ 
 		                     	scanf("%d",&a);
 			                    if(a==0)
 			                    {
@@ -275,7 +276,7 @@ struct stu*cut(struct stu*p)
 	               p->next=i;
 	               i->next=j;
                 } 
-	            printf("·ÅÆúÔö¼ÓĞÅÏ¢ÔòÑ§ºÅÊäÈë0£¬¼ÌĞøÔòÊäÈë²»Îª0µÄÑ§ºÅ£º\n"); 
+	            printf("æ”¾å¼ƒå¢åŠ ä¿¡æ¯åˆ™å­¦å·è¾“å…¥0ï¼Œç»§ç»­åˆ™è¾“å…¥ä¸ä¸º0çš„å­¦å·ï¼š\n"); 
  	            i=(struct stu*)malloc(sizeof(struct stu));
  	            scanf("%d",&i->num);
             }
@@ -287,10 +288,10 @@ struct stu*cut(struct stu*p)
  {
  	int i,h,k=0;
  	struct stu*j;
- 	printf("»¶Ó­½øÈëÕâ¸öbugºÜ¶àµÄÏµÍ³£¡\n\n");//ÓÃ»§Ö¸ÄÏ 
- 	printf("ÈôÏëÂ¼ÈëĞÅÏ¢ÇëÊäÈë1\n\nÈôÏëÏÔÊ¾ÒÑÂ¼ÈëĞÅÏ¢ÇëÊäÈë2\n\nÈôÏëĞŞ¸Ä£¨É¾³ı£©Ä³¸öÑ§ÉúµÄĞÅÏ¢²¢ÏÔÊ¾ÇëÊäÈë3\n\n");
- 	printf("ÈôÏëĞŞ¸Ä£¨Ôö¼Ó£©ĞÅÏ¢²¢ÏÔÊ¾ÇëÊäÈë4\n\nÈôÏë²éÑ¯Ä³Ò»¸öÑ§ÉúµÄ³É¼¨ÇëÊäÈë5\n\nÈôÏë³É¼¨ÅÅĞòÇëÊäÈë6£¨ÓÉ´óµ½Ğ¡£©\n\nµÇ³öÏµÍ³ÇëÊäÈë0\n\n");
-    printf("ÇëÑ¡ÔñÄúĞèÒªµÄ²Ù×÷£º");
+ 	printf("æ¬¢è¿è¿›å…¥è¿™ä¸ªbugå¾ˆå¤šçš„ç³»ç»Ÿï¼\n\n");//ç”¨æˆ·æŒ‡å— 
+ 	printf("è‹¥æƒ³å½•å…¥ä¿¡æ¯è¯·è¾“å…¥1\n\nè‹¥æƒ³æ˜¾ç¤ºå·²å½•å…¥ä¿¡æ¯è¯·è¾“å…¥2\n\nè‹¥æƒ³ä¿®æ”¹ï¼ˆåˆ é™¤ï¼‰æŸä¸ªå­¦ç”Ÿçš„ä¿¡æ¯å¹¶æ˜¾ç¤ºè¯·è¾“å…¥3\n\n");
+ 	printf("è‹¥æƒ³ä¿®æ”¹ï¼ˆå¢åŠ ï¼‰ä¿¡æ¯å¹¶æ˜¾ç¤ºè¯·è¾“å…¥4\n\nè‹¥æƒ³æŸ¥è¯¢æŸä¸€ä¸ªå­¦ç”Ÿçš„æˆç»©è¯·è¾“å…¥5\n\nè‹¥æƒ³æˆç»©æ’åºè¯·è¾“å…¥6ï¼ˆç”±å¤§åˆ°å°ï¼‰\n\nç™»å‡ºç³»ç»Ÿè¯·è¾“å…¥0\n\n");
+    printf("è¯·é€‰æ‹©æ‚¨éœ€è¦çš„æ“ä½œï¼š");
  	scanf("%d",&i);
  	while(i!=0)
  	{
@@ -298,34 +299,34 @@ struct stu*cut(struct stu*p)
 		 {
  			while(i!=1)
  			{
- 				printf("ÇëÏÈÂ¼ÈëĞÅÏ¢Ñ¡Ôñ1Â¼ÈëĞÅÏ¢²ÅÄÜ½øÈëÏÂÃæµÄ²Ù×÷£º");
+ 				printf("è¯·å…ˆå½•å…¥ä¿¡æ¯é€‰æ‹©1å½•å…¥ä¿¡æ¯æ‰èƒ½è¿›å…¥ä¸‹é¢çš„æ“ä½œï¼š");
 				 scanf("%d",&i); 
 				 if(i==0)
-				 goto end;//Ìø³öÑ­»· 
+				 goto end;//è·³å‡ºå¾ªç¯ 
 			 }
 		 }switch(i)
 		{
-	        case 1:j=creat();break;//ÓĞ·µ»ØÖµÊÇÒòÎªÃ¿´Îµ÷ÓÃ²»Í¬º¯Êıºó£¬Á´±íÓë²Ù×÷ºóµÄÁ´±íÏàÍ¬ 
+	        case 1:j=creat();break;//æœ‰è¿”å›å€¼æ˜¯å› ä¸ºæ¯æ¬¡è°ƒç”¨ä¸åŒå‡½æ•°åï¼Œé“¾è¡¨ä¸æ“ä½œåçš„é“¾è¡¨ç›¸åŒ 
 		    case 2:j=print(j);break;
 		    case 3:j=cut(j);break;
 		    case 4:j=add(j);break;
 		    case 5:j=find(j);break;
 		    case 6:j=sort(j);break;
 	   }
-		 printf("¼ÌĞøÇëÊäÈë¶ÔÓ¦¹¦ÄÜÊı×Ö£¬µÇ³öÏµÍ³ÇëÊäÈë0£º"); 
+		 printf("ç»§ç»­è¯·è¾“å…¥å¯¹åº”åŠŸèƒ½æ•°å­—ï¼Œç™»å‡ºç³»ç»Ÿè¯·è¾“å…¥0ï¼š"); 
 		 scanf("%d",&i); 
 	     printf("\n");
 		 k++;
 	 }
-	end: printf("¹§Ï²ÄúÍË³öÁËÕâ¸öÂúÊÇbugµÄÏµÍ³£¡\n\n");
+	end: printf("æ­å–œæ‚¨é€€å‡ºäº†è¿™ä¸ªæ»¡æ˜¯bugçš„ç³»ç»Ÿï¼\n\n");
 	     files(j);
-	     printf("ÄúµÄĞÅÏ¢±£ÒÔ±£´æ£¬ÈôĞèÒª´ò¿ªÎÄ¼şÇëÊäÈë1£¬·ÅÆúÔòÊäÈë0£º");
+	     printf("æ‚¨çš„ä¿¡æ¯ä¿ä»¥ä¿å­˜ï¼Œè‹¥éœ€è¦æ‰“å¼€æ–‡ä»¶è¯·è¾“å…¥1ï¼Œæ”¾å¼ƒåˆ™è¾“å…¥0ï¼š");
 	     scanf("%d",&h);
 		 if(h==1)
 		 {
 		 	file_p(j);
 		  } 
-		 printf("²Ù×÷½áÊø£¬Ğ»Ğ»ÄúµÄÊ¹ÓÃ!"); 
+		 printf("æ“ä½œç»“æŸï¼Œè°¢è°¢æ‚¨çš„ä½¿ç”¨!"); 
 		  
   } 
  
@@ -335,14 +336,14 @@ struct stu*cut(struct stu*p)
  	char fname[30];
  	FILE *i;
  	int a;
- 	printf("ÇëÄúÊäÈëÊı¾İ±£´æµÄÎÄ¼şÃû¼°µØÖ·£º");
+ 	printf("è¯·æ‚¨è¾“å…¥æ•°æ®ä¿å­˜çš„æ–‡ä»¶ååŠåœ°å€ï¼š");
 	scanf("%s",&fname); 
 	if(!(i=fopen(fname,"w+")))
 	{
-		printf("ÒÑÎªÄú´´½¨ÁË%sÎÄ¼ş\n\n",fname);
+		printf("å·²ä¸ºæ‚¨åˆ›å»ºäº†%sæ–‡ä»¶\n\n",fname);
 	}else
 	{
-		printf("ÎÄ¼ş´´½¨³É¹¦£¬ÄúµÄĞÅÏ¢½«±£´æµ½ÎÄ¼ş%sÖĞ\n\n",fname);
+		printf("æ–‡ä»¶åˆ›å»ºæˆåŠŸï¼Œæ‚¨çš„ä¿¡æ¯å°†ä¿å­˜åˆ°æ–‡ä»¶%sä¸­\n\n",fname);
 	} 
 	for(a=0;a<n;a++)
  	{
@@ -357,16 +358,16 @@ struct stu*cut(struct stu*p)
  	char fname[30];
  	FILE *i;
  	int a;
- 	printf("ÇëÄúÊäÈëĞèÒª´ò¿ªµÄÎÄ¼şÃû¼°µØÖ·£º");
+ 	printf("è¯·æ‚¨è¾“å…¥éœ€è¦æ‰“å¼€çš„æ–‡ä»¶ååŠåœ°å€ï¼š");
 	scanf("%s",&fname); 
 	if(!(i=fopen(fname,"r+")))
 	{
-		printf("¶Ô²»ÆğÃ»ÓĞÕâ¸öÎÄ¼ş£¬µ«ÒÑÎªÄú´´½¨ÁË%sÎÄ¼ş\n\n",fname);
+		printf("å¯¹ä¸èµ·æ²¡æœ‰è¿™ä¸ªæ–‡ä»¶ï¼Œä½†å·²ä¸ºæ‚¨åˆ›å»ºäº†%sæ–‡ä»¶\n\n",fname);
 	}else
 	{
-		printf("ÎÄ¼ş%s´ò¿ª³É¹¦£º\n\n",fname);
+		printf("æ–‡ä»¶%sæ‰“å¼€æˆåŠŸï¼š\n\n",fname);
 	} 
-	printf("\t\tÑ§ÉúÑ§ºÅ\tÑ§Éú³É¼¨\n");
+	printf("\t\tå­¦ç”Ÿå­¦å·\tå­¦ç”Ÿæˆç»©\n");
 	for(a=0;a<n;a++)
  	{
  		fread(p,sizeof(struct stu),1,i);
@@ -399,7 +400,7 @@ struct stu*cut(struct stu*p)
     }
 	j->next=head;
 	i=a=j=head;
-	puts("²ÎÓëÈËµÄ±àºÅÎª£º"); 
+	puts("å‚ä¸äººçš„ç¼–å·ä¸ºï¼š"); 
 	for(n=0;n<m;n++)
 	{
 		printf("%d\t",head->num);
@@ -413,7 +414,7 @@ struct stu*cut(struct stu*p)
 		
 		if(k==1)
 		{
-			printf("ÌÔÌ­µÄÑ¡ÊÖÊÇ%d\n",a->num);
+			printf("æ·˜æ±°çš„é€‰æ‰‹æ˜¯%d\n",a->num);
 			a=a->next;
             			
 		}else
@@ -433,10 +434,10 @@ struct stu*cut(struct stu*p)
 				n++;
 			}
 		    j->next=a;
-		    printf("±¾¾ÖÌÔÌ­µÄÑ¡ÊÖÊÇ%d\n",i->num);
+		    printf("æœ¬å±€æ·˜æ±°çš„é€‰æ‰‹æ˜¯%d\n",i->num);
 		    i=a;
 		    j=i;
 		}
 	}
-	printf("×îÖÕ»ñÊ¤µÄÑ¡ÊÖÊÇ%d",a->num);
+	printf("æœ€ç»ˆè·èƒœçš„é€‰æ‰‹æ˜¯%d",a->num);
 } */
