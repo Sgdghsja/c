@@ -75,6 +75,7 @@ struct stu
 	 printf("\n\n");
 	 return head;
  }
+adwakdfrh;
 struct stu* find(struct stu*p)
 {
 	int a,k=0;
